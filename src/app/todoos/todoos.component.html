@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+   
+    <div class="parent">
+     
+        <h1 style="color: white; font-family: cursive;">So What We Gonna Do?</h1>
+        <input style="margin-left: 20px;font-size: large; font-family: cursive;color: #33ccff; font-weight: bold;" type="text" [(ngModel)]="todo" placeholder="Enter Your Task" >
+        <button style="font-size: 21px; background-color: #ff99cc;color: white; border-color:#ff99cc;" (click)="addtolist()"><i class="fa fa-plus"></i></button>
+        <ul >
+            <li style="color: #33ccff;font-weight: bold;" *ngFor="let addtodo of todolist; let i=index ">
+                <div class="add">{{addtodo}}
+                     <button  style="float: right;font-size: large ;background-color: #ff99cc;color: white; border-color:#ff99cc;"  (click)="checked(addtodo,i)"><i class="fa fa-check"></i></button>
+                    <button style=" float: right;font-size: large;background-color:#33ccff;color: white; border-color:#33ccff;"(click)="removefromlist(i)"><i class="fa fa-trash-o"></i></button></div>
+               
+                
+            </li>
+         <h1 style="color: white;font-family: cursive;font-weight: bold;">Completed Tasks</h1>
+        </ul>
+        <ul >
+            <li style="color:#ff99cc;" [ngClass]="{'lineclass':ischecked}" *ngFor="let checkedtodo of arr; let i=index ">
+                <div class="add">{{checkedtodo}}
+                   
+                    <button style=" float: right;font-size: large;background-color:#33ccff;color: white; border-color:#33ccff;"(click)="removefromcheckedlist(i)"><i class="fa fa-trash-o"></i></button></div>
+               
+                
+            </li>
+
+        </ul>
+       
+    </div>
+</body>
+</html>
